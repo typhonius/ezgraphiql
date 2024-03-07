@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
     }
     // Replace placeholders with environment variable values
     let modifiedData = data.replace('<URL>', process.env.GRAPHQL_URL)
-                           .replace('<HEADERS>', JSON.stringify(headers));
+                           .replace('"<HEADERS>"', JSON.stringify(headers));
     res.send(modifiedData);
   });
 });
