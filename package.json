@@ -1,0 +1,14 @@
+{
+  "name": "ez-graphiql",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "[ -e .env ] && set -a && . ./.env; node ez.js"
+  },
+  "dependencies": {
+    "express": "^4.18.3",
+    "graphiql": "^3.1.1",
+    "graphql": "^16.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
