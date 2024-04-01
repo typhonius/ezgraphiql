@@ -16,6 +16,7 @@ Configure
 The tool may be configured with three options:
 * Port: Which local port GraphiQL runs on
 * GraphQL Endpoint: The location of the endpoint to retreive a schema from e.g. your Hasura install
+* WSS Endpoint: The location of the WS endpoint to connect to for subscriptions
 * Headers: Headers to send to Hasura to alter permissions
 
 Each of these may either be defined on the command line as environment variables or entered into a `.env` file.
@@ -33,7 +34,7 @@ npm start
 To define environment variables directly on the command line, use the following command:
 
 ```
-HEADERS_JSON='{ "x-hasura-admin-secret": "myadminsecretkey", "x-hasura-role": "user", "x-hasura-user-id": "7" }' GRAPHQL_URL='http://localhost:8080/v1/graphql' PORT=12235 npm start
+HEADERS_JSON='{ "x-hasura-admin-secret": "myadminsecretkey", "x-hasura-role": "user", "x-hasura-user-id": "7" }' GRAPHQL_URL='http://localhost:8080/v1/graphql' WSS_URL='ws://localhost:8080/v1/graphql' PORT=12235 npm start
 ```
 
 
