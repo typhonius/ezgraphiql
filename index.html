@@ -36,6 +36,11 @@
       crossorigin
       src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
     ></script>
+    <script
+    crossorigin
+    src="https://unpkg.com/graphql-ws@4.2.0/umd/graphql-ws.min.js"
+  ></script>
+
     <!--
       These two files can be found in the npm module, however you may wish to
       copy them directly into your environment, or perhaps include them in your
@@ -58,6 +63,14 @@
       rel="stylesheet"
       href="https://unpkg.com/@graphiql/plugin-explorer/dist/style.css"
     />
+
+    <!--
+      This is graphql-ws for subscriptions
+    -->
+    <script
+      src="https://unpkg.com/graphql-ws@5.16.0/umd/graphql-ws.js"
+      crossorigin
+    ></script>
   </head>
 
   <body>
@@ -66,7 +79,14 @@
       const root = ReactDOM.createRoot(document.getElementById('graphiql'));
       const fetcher = GraphiQL.createFetcher({
         url: "<URL>",
-        headers: "<HEADERS>"
+        wsClient: graphqlWs.createClient({
+          url: "<WSS_URL>",
+          keepAlive: 2000,
+          connectionParams: {
+            headers: "<WSHEADERS>"
+          }
+        }),
+        headers: "<HEADERS>",
       });
       const explorerPlugin = GraphiQLPluginExplorer.explorerPlugin();
       root.render(
